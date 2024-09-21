@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/voting_panel">Voting Area</a></li>
+            <li><a href="/admin_panel">Admin Page</a></li>
+            <li><a href="/results">Result Page</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <!-- Admin Form -->
+        <div class="admin">
+            <form id="addPartyForm">
+                <label for="chk" aria-hidden="true">Manage Parties</label>
+                <div class="party-input">
+                    <input type="text" name="partyName" id="partyName" placeholder="Enter Party Name" required="" class="party-name">
+                    <button type="submit" class="add-button">Add Party</button>
+                </div>
+            </form>
+            <button id="toggleVotingButton" class="start-button">Toggle Voting</button>
+            <label id="responseMessage"></label>
+        </div>
+       
+    </div>
+    <script>
+        // Add Party Form Submission
+        document.getElementById('addPartyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const partyName = document.getElementById('partyName').value;
+
+            fetch('/add_party', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: partyName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message === 'success') {
+                    document.getElementById('responseMessage').innerText = 'Party Added Successfully !!!';
+                    document.getElementById('partyName').value = ''; // Clear the input field
+
+                    setTimeout(() => {
+                        document.getElementById('responseMessage').innerText = '';
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                document.getElementById('responseMessage').innerText = 'Error: ';
+            });
+        });
+
+        // Toggle Voting Functionality
+        document.getElementById('toggleVotingButton').addEventListener('click', function() {
+            fetch('/toggle_voting', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.transaction_hash) {
+                    const status = data.voting_status ? 'Voting Started !!!' : 'Voting Stopped !!!';
+                    document.getElementById('responseMessage').innerText = status;
+
+                    setTimeout(() => {
+                        document.getElementById('responseMessage').innerText = '';
+                    }, 2000);
+                } else {
+                    document.getElementById('responseMessage').innerText = 'Error: ' + data.error;
+                }
+            })
+            .catch(error => {
+                document.getElementById('responseMessage').innerText = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>

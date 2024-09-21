@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/result.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/voting_panel">Voting Area</a></li>
+            <li><a href="/admin_panel">Admin Page</a></li>
+            <li><a href="/results">Result Page</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        <h2 class="result-title">Voting Results</h2>
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>Party Name</th>
+                    <th>Number of Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for party in results %}
+                    <tr>
+                        <td>{{ party[0] }}</td>
+                        <td>{{ party[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

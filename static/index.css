@@ -1,0 +1,99 @@
+/* General styling for the body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, rgba(15, 12, 41, 0.5), rgba(48, 43, 99, 0.5), rgba(36, 36, 62, 0.5));
+}
+
+/* Video Background */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Navigation Bar styling */
+.navbar {
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+/* Navigation list */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation items */
+.navbar ul li {
+    margin: 0 20px;
+}
+
+/* Navigation links */
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Hover effect for links */
+.navbar ul li a:hover {
+    color: #ff69b4;
+    transform: scale(1.1);
+}
+
+/* Main content styling */
+.main-content {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Vote Chain text with hover effect */
+.vote-chain {
+    font-size: 8em;
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    transition: transform 0.8s, color 0.8s;
+}
+
+/* Hover effect for Vote Chain */
+.vote-chain:hover {
+    transform: scale(1.2);
+    color: #ff69b4;
+}
+
+/* E Voting System static text */
+.e-voting {
+    font-size: 2em;
+    margin-top: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+}

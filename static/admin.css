@@ -1,0 +1,155 @@
+/* General styling for the body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+/* Navigation Bar styling */
+.navbar {
+    width: 100%;
+    background: transparent; /* Transparent background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+/* Navigation list */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation items */
+.navbar ul li {
+    margin: 0 20px; /* Increased space between items */
+}
+
+/* Navigation links */
+.navbar ul li a {
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    font-size: 1.5em; /* Increased font size */
+    font-weight: bold; /* Bold text */
+    padding: 10px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: color 0.3s, transform 0.3s; /* Transition for hover effects */
+}
+
+/* Hover effect for links */
+.navbar ul li a:hover {
+    color: #ff69b4; /* Pink text color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Main container */
+.main {
+    width: max-content;
+    height: 400px;
+    overflow: hidden;
+    background: url("bg2.jpg") no-repeat center / cover;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+    margin-top: 60px; /* Added margin to prevent overlap with the navbar */
+}
+
+/* Hide the checkbox */
+#chk {
+    display: none;
+}
+
+/* Form containers */
+.admin {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+}
+
+label {
+    color: #fff;
+    font-size: 4.5em;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+/* Style for party input containers */
+.party-input {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    justify-content: center; /* Center align items horizontally */
+    margin: 10px auto;
+}
+
+/* Input fields */
+input[type="text"].party-name {
+    width: 50%; /* Adjusted width for party name input */
+    height: 30px; /* Height for text input */
+    background: #e0dede; 
+    display: flex;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+/* Button styling for add */
+.add-button {
+    margin-left: 10px;
+    height: 36px; /* Align button height with input */
+    background-color: #573b8a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease-in;
+}
+
+.add-button:hover {
+    background: #6d44b8;
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin: 10px 0;
+}
+
+/* Button styling for start and end */
+.start-button {
+    width: 45%; /* Adjust width for buttons */
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 150px;
+    background-color: #573b8a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease-in;
+}
+
+.start-button:hover {
+    background: #6d44b8;
+}
+
+#responseMessage{
+    font-size: 2.3em;
+}
